@@ -1,6 +1,6 @@
 {
   "name": "boardgamefyi-embed",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Embed BoardGameFYI widgets — game cards, 8-axis DNA radar charts, player badges. 10,552 games. Zero dependencies, Shadow DOM, 4 themes.",
   "main": "dist/embed.min.js",
   "module": "dist/embed.esm.js",
