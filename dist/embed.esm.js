@@ -1,0 +1,686 @@
+function z(){return`
+/* \u2500\u2500 Card Header \u2500\u2500 */
+.guidefyi-card-header {
+  padding: 16px; border-bottom: 1px solid var(--border);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 8%, var(--surface)), var(--surface));
+}
+.guidefyi-card-title {
+  margin: 0; font-size: 16px; font-weight: 700; color: var(--text);
+  display: flex; align-items: center; gap: 8px;
+}
+.guidefyi-card-title a {
+  color: var(--text); text-decoration: none;
+}
+.guidefyi-card-title a:hover { color: var(--link); }
+.guidefyi-card-title svg { width: 16px; height: 16px; color: var(--muted); flex-shrink: 0; }
+.guidefyi-card-subtitle {
+  margin: 4px 0 0 0; font-size: 12px; color: var(--muted);
+}
+
+/* \u2500\u2500 Card Body \u2500\u2500 */
+.guidefyi-card-body { padding: 16px; }
+.guidefyi-card-desc {
+  margin: 0 0 12px 0; font-size: 13px; color: var(--text); line-height: 1.55;
+}
+
+/* \u2500\u2500 Properties Row \u2500\u2500 */
+.guidefyi-props {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px;
+}
+.guidefyi-prop {
+  display: flex; flex-direction: column; gap: 2px;
+  padding: 6px 10px; background: var(--surface); border-radius: 6px;
+  border: 1px solid var(--border); flex: 1; min-width: 80px;
+}
+.guidefyi-prop-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+.guidefyi-prop-value { font-size: 14px; font-weight: 600; color: var(--text); }
+
+/* \u2500\u2500 Tags \u2500\u2500 */
+.guidefyi-tags { display: flex; flex-wrap: wrap; gap: 4px; margin: 8px 0; }
+
+/* \u2500\u2500 Radar Chart (BoardGameFYI DNA) \u2500\u2500 */
+.guidefyi-radar-wrap {
+  padding: 12px; display: flex; justify-content: center;
+}
+.guidefyi-radar-svg {
+  width: 200px; height: 200px;
+}
+.guidefyi-radar-polygon {
+  fill: color-mix(in srgb, var(--accent) 20%, transparent);
+  stroke: var(--accent); stroke-width: 2;
+}
+.guidefyi-radar-grid {
+  fill: none; stroke: var(--border); stroke-width: 0.5;
+}
+.guidefyi-radar-axis { stroke: var(--border); stroke-width: 0.5; }
+.guidefyi-radar-label { font-size: 9px; fill: var(--muted); text-anchor: middle; }
+.guidefyi-radar-value { font-size: 8px; fill: var(--accent); font-weight: 600; text-anchor: middle; }
+
+/* \u2500\u2500 DNA Bars (alternative to radar) \u2500\u2500 */
+.guidefyi-dna-bars { padding: 0 16px 12px; }
+.guidefyi-dna-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+.guidefyi-dna-label { font-size: 11px; color: var(--muted); width: 80px; text-align: right; }
+.guidefyi-dna-track {
+  flex: 1; height: 8px; background: var(--surface); border-radius: 4px;
+  border: 1px solid var(--border); overflow: hidden;
+}
+.guidefyi-dna-fill {
+  height: 100%; background: var(--accent); border-radius: 4px; transition: width 0.5s ease;
+}
+.guidefyi-dna-val { font-size: 11px; color: var(--text); font-weight: 600; width: 28px; }
+
+/* \u2500\u2500 Formula Display (CalcFYI) \u2500\u2500 */
+.guidefyi-formula-box {
+  padding: 12px 16px; margin: 8px 0; background: var(--surface);
+  border: 1px solid var(--border); border-radius: 6px;
+  font-family: ui-monospace, 'SF Mono', 'Consolas', monospace;
+  font-size: 14px; color: var(--text); text-align: center; line-height: 1.8;
+  overflow-x: auto; white-space: nowrap;
+}
+
+/* \u2500\u2500 Variables List (CalcFYI) \u2500\u2500 */
+.guidefyi-vars { padding: 0 16px 12px; }
+.guidefyi-var-row {
+  display: flex; align-items: baseline; gap: 8px; padding: 4px 0;
+  border-bottom: 1px solid var(--border); font-size: 12px;
+}
+.guidefyi-var-row:last-child { border-bottom: none; }
+.guidefyi-var-symbol {
+  font-family: ui-monospace, 'SF Mono', 'Consolas', monospace;
+  font-weight: 700; color: var(--accent); min-width: 24px;
+}
+.guidefyi-var-name { color: var(--text); flex: 1; }
+.guidefyi-var-unit { color: var(--muted); font-size: 11px; }
+
+/* \u2500\u2500 Salary Bar (SalaryFYI) \u2500\u2500 */
+.guidefyi-salary-bar-wrap { padding: 0 16px 12px; }
+.guidefyi-salary-bar {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 8px;
+}
+.guidefyi-salary-label { font-size: 11px; color: var(--muted); width: 36px; text-align: right; }
+.guidefyi-salary-track {
+  flex: 1; height: 10px; background: var(--surface); border-radius: 5px;
+  border: 1px solid var(--border); overflow: hidden; position: relative;
+}
+.guidefyi-salary-fill {
+  height: 100%; border-radius: 5px; transition: width 0.5s ease;
+}
+.guidefyi-salary-p25 { background: color-mix(in srgb, var(--accent) 40%, var(--surface)); }
+.guidefyi-salary-median { background: var(--accent); }
+.guidefyi-salary-p75 { background: color-mix(in srgb, var(--accent) 70%, var(--surface)); }
+.guidefyi-salary-amount {
+  font-size: 11px; font-weight: 600; color: var(--text); min-width: 60px;
+}
+
+/* \u2500\u2500 Player Count / Rating Badges \u2500\u2500 */
+.guidefyi-rating-badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 3px 8px; border-radius: 5px; font-size: 12px; font-weight: 700;
+  background: color-mix(in srgb, var(--accent) 15%, var(--surface));
+  color: var(--accent); border: 1px solid color-mix(in srgb, var(--accent) 30%, var(--border));
+}
+.guidefyi-rating-badge svg { width: 12px; height: 12px; }
+
+/* \u2500\u2500 Glossary \u2500\u2500 */
+.guidefyi-glossary-term { font-weight: 700; color: var(--text); font-size: 15px; margin-bottom: 4px; }
+.guidefyi-glossary-def { font-size: 13px; color: var(--text); line-height: 1.6; margin: 0; }
+.guidefyi-glossary-cat { font-size: 11px; color: var(--muted); margin-top: 8px; }
+
+/* \u2500\u2500 FAQ \u2500\u2500 */
+.guidefyi-faq-list { padding: 0 16px 12px; }
+.guidefyi-faq-item { border-bottom: 1px solid var(--border); }
+.guidefyi-faq-item:last-child { border-bottom: none; }
+.guidefyi-faq-q {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 0; cursor: pointer; font-size: 13px; font-weight: 600;
+  color: var(--text); user-select: none;
+}
+.guidefyi-faq-q:hover { color: var(--link); }
+.guidefyi-faq-arrow {
+  width: 14px; height: 14px; transition: transform 0.2s; color: var(--muted); flex-shrink: 0;
+}
+.guidefyi-faq-arrow.open { transform: rotate(180deg); }
+.guidefyi-faq-a {
+  font-size: 12px; color: var(--muted); line-height: 1.6;
+  padding: 0 0 10px 0; display: none;
+}
+.guidefyi-faq-a.open { display: block; }
+
+/* \u2500\u2500 Guide Card \u2500\u2500 */
+.guidefyi-guide-meta {
+  display: flex; align-items: center; gap: 8px; margin-top: 8px;
+  font-size: 11px; color: var(--muted);
+}
+
+/* \u2500\u2500 Compare (side-by-side) \u2500\u2500 */
+.guidefyi-compare {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+}
+.guidefyi-compare-col {
+  padding: 12px; border-right: 1px solid var(--border);
+}
+.guidefyi-compare-col:last-child { border-right: none; }
+.guidefyi-compare-name {
+  font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 8px;
+  text-align: center;
+}
+.guidefyi-compare-row {
+  display: flex; justify-content: space-between; padding: 4px 0;
+  font-size: 12px; border-bottom: 1px solid var(--border);
+}
+.guidefyi-compare-row:last-child { border-bottom: none; }
+.guidefyi-compare-label { color: var(--muted); }
+.guidefyi-compare-val { font-weight: 600; color: var(--text); }
+
+/* \u2500\u2500 Links \u2500\u2500 */
+.guidefyi-link {
+  color: var(--link); text-decoration: none; font-size: 12px;
+  display: inline-flex; align-items: center; gap: 4px;
+}
+.guidefyi-link:hover { text-decoration: underline; }
+.guidefyi-link svg { width: 11px; height: 11px; }
+
+/* \u2500\u2500 Card Footer \u2500\u2500 */
+.guidefyi-card-footer {
+  padding: 10px 16px; border-top: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center;
+}
+  `}function B(){return`
+/* \u2500\u2500 Card Header (clean) \u2500\u2500 */
+.guidefyi-card-header {
+  padding: 14px 16px; border-bottom: 1px solid var(--border); background: var(--bg);
+}
+.guidefyi-card-title {
+  margin: 0; font-size: 15px; font-weight: 600; color: var(--text);
+  display: flex; align-items: center; gap: 8px;
+}
+.guidefyi-card-title a { color: var(--text); text-decoration: none; }
+.guidefyi-card-title a:hover { color: var(--link); }
+.guidefyi-card-title svg { width: 14px; height: 14px; color: var(--muted); flex-shrink: 0; }
+.guidefyi-card-subtitle { margin: 3px 0 0 0; font-size: 12px; color: var(--muted); }
+
+/* \u2500\u2500 Card Body (clean) \u2500\u2500 */
+.guidefyi-card-body { padding: 14px 16px; }
+.guidefyi-card-desc { margin: 0 0 10px 0; font-size: 13px; color: var(--text); line-height: 1.5; }
+
+/* \u2500\u2500 Properties (clean) \u2500\u2500 */
+.guidefyi-props { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.guidefyi-prop {
+  display: flex; flex-direction: column; gap: 1px;
+  padding: 5px 8px; background: var(--bg); border-radius: 4px;
+  border: 1px solid var(--border); flex: 1; min-width: 76px;
+}
+.guidefyi-prop-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+.guidefyi-prop-value { font-size: 13px; font-weight: 600; color: var(--text); }
+
+/* \u2500\u2500 Tags (clean) \u2500\u2500 */
+.guidefyi-tags { display: flex; flex-wrap: wrap; gap: 4px; margin: 8px 0; }
+
+/* \u2500\u2500 Radar (clean \u2014 thinner strokes) \u2500\u2500 */
+.guidefyi-radar-wrap { padding: 10px; display: flex; justify-content: center; }
+.guidefyi-radar-svg { width: 180px; height: 180px; }
+.guidefyi-radar-polygon { fill: color-mix(in srgb, var(--accent) 15%, transparent); stroke: var(--accent); stroke-width: 1.5; }
+.guidefyi-radar-grid { fill: none; stroke: var(--border); stroke-width: 0.5; }
+.guidefyi-radar-axis { stroke: var(--border); stroke-width: 0.5; }
+.guidefyi-radar-label { font-size: 9px; fill: var(--muted); text-anchor: middle; }
+.guidefyi-radar-value { font-size: 8px; fill: var(--accent); font-weight: 600; text-anchor: middle; }
+
+/* \u2500\u2500 DNA Bars (clean) \u2500\u2500 */
+.guidefyi-dna-bars { padding: 0 16px 10px; }
+.guidefyi-dna-row { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+.guidefyi-dna-label { font-size: 11px; color: var(--muted); width: 76px; text-align: right; }
+.guidefyi-dna-track { flex: 1; height: 6px; background: var(--surface); border-radius: 3px; border: 1px solid var(--border); overflow: hidden; }
+.guidefyi-dna-fill { height: 100%; background: var(--accent); border-radius: 3px; }
+.guidefyi-dna-val { font-size: 11px; color: var(--text); font-weight: 600; width: 28px; }
+
+/* \u2500\u2500 Formula (clean) \u2500\u2500 */
+.guidefyi-formula-box {
+  padding: 10px 14px; margin: 6px 0; background: var(--surface);
+  border: 1px solid var(--border); border-radius: 4px;
+  font-family: ui-monospace, 'SF Mono', 'Consolas', monospace;
+  font-size: 13px; color: var(--text); text-align: center; line-height: 1.7;
+}
+
+/* \u2500\u2500 Variables (clean) \u2500\u2500 */
+.guidefyi-vars { padding: 0 16px 10px; }
+.guidefyi-var-row { display: flex; align-items: baseline; gap: 6px; padding: 3px 0; border-bottom: 1px solid var(--border); font-size: 12px; }
+.guidefyi-var-row:last-child { border-bottom: none; }
+.guidefyi-var-symbol { font-family: ui-monospace, monospace; font-weight: 700; color: var(--accent); min-width: 20px; }
+.guidefyi-var-name { color: var(--text); flex: 1; }
+.guidefyi-var-unit { color: var(--muted); font-size: 11px; }
+
+/* \u2500\u2500 Salary Bar (clean) \u2500\u2500 */
+.guidefyi-salary-bar-wrap { padding: 0 16px 10px; }
+.guidefyi-salary-bar { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; }
+.guidefyi-salary-label { font-size: 11px; color: var(--muted); width: 34px; text-align: right; }
+.guidefyi-salary-track { flex: 1; height: 8px; background: var(--surface); border-radius: 4px; border: 1px solid var(--border); overflow: hidden; }
+.guidefyi-salary-fill { height: 100%; border-radius: 4px; }
+.guidefyi-salary-p25 { background: color-mix(in srgb, var(--accent) 35%, var(--surface)); }
+.guidefyi-salary-median { background: var(--accent); }
+.guidefyi-salary-p75 { background: color-mix(in srgb, var(--accent) 65%, var(--surface)); }
+.guidefyi-salary-amount { font-size: 11px; font-weight: 600; color: var(--text); min-width: 56px; }
+
+/* \u2500\u2500 Rating Badge (clean) \u2500\u2500 */
+.guidefyi-rating-badge {
+  display: inline-flex; align-items: center; gap: 3px;
+  padding: 2px 6px; border-radius: 4px; font-size: 12px; font-weight: 600;
+  background: var(--badge-bg); color: var(--badge-text); border: 1px solid var(--border);
+}
+.guidefyi-rating-badge svg { width: 11px; height: 11px; }
+
+/* \u2500\u2500 Glossary (clean) \u2500\u2500 */
+.guidefyi-glossary-term { font-weight: 600; color: var(--text); font-size: 14px; margin-bottom: 4px; }
+.guidefyi-glossary-def { font-size: 13px; color: var(--text); line-height: 1.5; margin: 0; }
+.guidefyi-glossary-cat { font-size: 11px; color: var(--muted); margin-top: 6px; }
+
+/* \u2500\u2500 FAQ (clean) \u2500\u2500 */
+.guidefyi-faq-list { padding: 0 16px 10px; }
+.guidefyi-faq-item { border-bottom: 1px solid var(--border); }
+.guidefyi-faq-item:last-child { border-bottom: none; }
+.guidefyi-faq-q { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; cursor: pointer; font-size: 13px; font-weight: 600; color: var(--text); user-select: none; }
+.guidefyi-faq-q:hover { color: var(--link); }
+.guidefyi-faq-arrow { width: 13px; height: 13px; transition: transform 0.2s; color: var(--muted); flex-shrink: 0; }
+.guidefyi-faq-arrow.open { transform: rotate(180deg); }
+.guidefyi-faq-a { font-size: 12px; color: var(--muted); line-height: 1.5; padding: 0 0 8px 0; display: none; }
+.guidefyi-faq-a.open { display: block; }
+
+/* \u2500\u2500 Guide Card (clean) \u2500\u2500 */
+.guidefyi-guide-meta { display: flex; align-items: center; gap: 6px; margin-top: 6px; font-size: 11px; color: var(--muted); }
+
+/* \u2500\u2500 Compare (clean) \u2500\u2500 */
+.guidefyi-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+.guidefyi-compare-col { padding: 10px; border-right: 1px solid var(--border); }
+.guidefyi-compare-col:last-child { border-right: none; }
+.guidefyi-compare-name { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 6px; text-align: center; }
+.guidefyi-compare-row { display: flex; justify-content: space-between; padding: 3px 0; font-size: 12px; border-bottom: 1px solid var(--border); }
+.guidefyi-compare-row:last-child { border-bottom: none; }
+.guidefyi-compare-label { color: var(--muted); }
+.guidefyi-compare-val { font-weight: 600; color: var(--text); }
+
+/* \u2500\u2500 Links (clean) \u2500\u2500 */
+.guidefyi-link { color: var(--link); text-decoration: none; font-size: 12px; display: inline-flex; align-items: center; gap: 3px; }
+.guidefyi-link:hover { text-decoration: underline; }
+.guidefyi-link svg { width: 10px; height: 10px; }
+
+/* \u2500\u2500 Card Footer (clean) \u2500\u2500 */
+.guidefyi-card-footer { padding: 8px 16px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+  `}function fe(e){switch(e){case"clean":return B();case"modern":default:return z()}}function q(e,t="modern"){return`
+:host {
+  display: block;
+  --site-accent: ${e};
+}
+
+.guidefyi-widget {
+  box-sizing: border-box;
+  min-width: 240px;
+  max-width: 420px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.6;
+  transition: border-color 0.2s;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+.guidefyi-widget:hover {
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+}
+
+.guidefyi-widget[data-size="compact"] { max-width: 280px; font-size: 13px; }
+.guidefyi-widget[data-size="default"] { max-width: 420px; }
+.guidefyi-widget[data-size="large"] { max-width: 720px; }
+
+/* Light theme */
+.guidefyi-widget[data-theme="light"] {
+  --bg: #fff; --text: #1e293b; --border: #e2e8f0; --accent: var(--site-accent);
+  --muted: #64748b; --surface: #f8fafc; --badge-bg: #f1f5f9; --badge-text: #374151;
+  --link: var(--site-accent); --copy-bg: #f3f4f6; --copy-hover: #e5e7eb;
+  --input-bg: #ffffff; --input-border: #d1d5db; --input-focus: var(--site-accent);
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* Dark theme */
+.guidefyi-widget[data-theme="dark"] {
+  --bg: #1a1a1a; --text: #f3f4f6; --border: #374151; --accent: var(--site-accent);
+  --muted: #9ca3af; --surface: #111827; --badge-bg: #374151; --badge-text: #d1d5db;
+  --link: color-mix(in srgb, var(--site-accent) 80%, #fff); --copy-bg: #374151; --copy-hover: #4b5563;
+  --input-bg: #111111; --input-border: #4b5563; --input-focus: var(--site-accent);
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+/* Sepia theme */
+.guidefyi-widget[data-theme="sepia"] {
+  --bg: #f5f0e8; --text: #3d3529; --border: #d4c5a9; --accent: var(--site-accent);
+  --muted: #8b7d6b; --surface: #ede8df; --badge-bg: #e8e0d0; --badge-text: #5c4f3d;
+  --link: color-mix(in srgb, var(--site-accent) 70%, #3d3529); --copy-bg: #e8e0d0; --copy-hover: #ddd4c0;
+  --input-bg: #f5f0e8; --input-border: #c4b49a; --input-focus: var(--site-accent);
+  --shadow: 0 1px 3px rgba(61, 53, 41, 0.12);
+}
+
+.guidefyi-widget *, .guidefyi-widget *::before, .guidefyi-widget *::after { box-sizing: border-box; }
+
+/* Loading */
+.guidefyi-loading {
+  padding: 20px 16px; text-align: center; color: var(--muted); font-size: 13px;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.guidefyi-spinner {
+  width: 16px; height: 16px; border: 2px solid var(--border); border-top-color: var(--accent);
+  border-radius: 50%; animation: guidefyi-spin 0.7s linear infinite; display: inline-block; flex-shrink: 0;
+}
+@keyframes guidefyi-spin { to { transform: rotate(360deg); } }
+
+/* Error */
+.guidefyi-error { padding: 16px; color: var(--muted); font-size: 13px; text-align: center; }
+.guidefyi-error p { margin: 0 0 8px 0; }
+.guidefyi-error a { color: var(--link); text-decoration: none; }
+.guidefyi-error a:hover { text-decoration: underline; }
+
+/* Badge */
+.guidefyi-badge {
+  display: inline-block; font-size: 10px; font-weight: 600; padding: 2px 7px;
+  border-radius: 4px; background: var(--badge-bg); color: var(--badge-text);
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+
+/* Search */
+.guidefyi-search-wrap { padding: 12px 16px; }
+.guidefyi-search-form { display: flex; gap: 8px; }
+.guidefyi-search-input {
+  flex: 1; padding: 8px 12px; border: 1px solid var(--input-border); border-radius: 6px;
+  background: var(--input-bg); color: var(--text); font-size: 13px; font-family: inherit; outline: none;
+  transition: border-color 0.15s;
+}
+.guidefyi-search-input:focus {
+  border-color: var(--input-focus);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--input-focus) 20%, transparent);
+}
+.guidefyi-search-input::placeholder { color: var(--muted); }
+.guidefyi-search-btn {
+  background: var(--accent); color: #fff; border: none; border-radius: 6px;
+  padding: 8px 14px; font-size: 13px; font-weight: 500; cursor: pointer;
+  font-family: inherit; transition: opacity 0.15s; white-space: nowrap;
+}
+.guidefyi-search-btn:hover { opacity: 0.9; }
+
+.guidefyi-search-results { padding: 0 16px 12px; }
+.guidefyi-result-item { padding: 8px 0; border-bottom: 1px solid var(--border); }
+.guidefyi-result-item:last-child { border-bottom: none; }
+.guidefyi-result-title { font-size: 13px; font-weight: 600; color: var(--text); margin: 0 0 3px 0; }
+.guidefyi-result-meta { font-size: 11px; color: var(--muted); display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+
+/* Powered by */
+.guidefyi-powered {
+  display: block; text-align: center; padding: 8px 16px; font-size: 11px;
+  color: var(--muted); border-top: 1px solid var(--border);
+}
+.guidefyi-powered a { color: var(--link); text-decoration: none; font-weight: 500; }
+.guidefyi-powered a:hover { text-decoration: underline; }
+
+/* Copy button */
+.guidefyi-copy-btn {
+  background: var(--copy-bg); color: var(--text); border: none; border-radius: 5px;
+  padding: 4px 9px; font-size: 11px; cursor: pointer; display: inline-flex;
+  align-items: center; gap: 4px; transition: background 0.15s; font-family: inherit;
+}
+.guidefyi-copy-btn:hover { background: var(--copy-hover); }
+.guidefyi-copy-btn svg { width: 11px; height: 11px; }
+
+/* Monospace */
+.guidefyi-mono { font-family: ui-monospace, 'SF Mono', 'Cascadia Code', 'Consolas', monospace; font-size: 13px; }
+
+${fe(t)}
+  `}function v(e,t){let r=e.dataset.styleVariant||"modern",i=e.attachShadow({mode:"open"}),a=document.createElement("style");return a.textContent=q(t.accent,r),i.appendChild(a),i}function me(e){let t=e.dataset.theme||"light";return t==="auto"?window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light":t}function w(e,t,r){let i=me(t),a=t.dataset.size||"default",n=document.createElement("div");return n.className=["guidefyi-widget",r].filter(Boolean).join(" "),n.setAttribute("data-theme",i),n.setAttribute("data-size",a),e.appendChild(n),t.dataset.theme==="auto"&&window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change",o=>{n.setAttribute("data-theme",o.matches?"dark":"light")}),n}function y(e){e.innerHTML=`
+    <div class="guidefyi-loading">
+      <span class="guidefyi-spinner"></span>
+      Loading\u2026
+    </div>
+  `}function d(e,t,r){e.innerHTML=`
+    <div class="guidefyi-error">
+      <p>${t}</p>
+      <a href="https://${r.domain}" target="_blank" rel="noopener">
+        Visit ${r.name}
+      </a>
+    </div>
+  `}var F='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>';function g(e){return`<span class="guidefyi-powered">Powered by <a href="https://${e.domain}" target="_blank" rel="noopener">${e.name}</a></span>`}function S(e){return`guidefyi_embed_${e}`}function ye(e){try{let t=sessionStorage.getItem(S(e));if(!t)return null;let r=JSON.parse(t);return Date.now()-r.ts>3e5?(sessionStorage.removeItem(S(e)),null):r.data}catch{return null}}function xe(e,t){try{let r={data:t,ts:Date.now()};sessionStorage.setItem(S(e),JSON.stringify(r))}catch{}}async function c(e,t,r){let i=e.endsWith("/")?e:e+"/",a=t.startsWith("/")?t.slice(1):t,n=new URL(a,i);r&&Object.entries(r).forEach(([u,x])=>n.searchParams.set(u,x));let o=n.toString(),l=ye(o);if(l!==null)return l;let s=await fetch(o,{headers:{Accept:"application/json"}});if(!s.ok)throw new Error(`API error ${s.status}: ${o}`);let p=await s.json();return xe(o,p),p}async function I(e,t,r){let i=await c(e,t,r);return Array.isArray(i)?i:i&&typeof i=="object"&&"results"in i?i.results:[]}var M={calculatorDetail:e=>`calculators/${e}/`,calculatorList:"calculators/",formulaDetail:e=>`formulas/${e}/`,formulaList:"formulas/",categoryList:"categories/",categoryDetail:e=>`categories/${e}/`,glossaryDetail:e=>`glossary/${e}/`,glossaryList:"glossary/",guideDetail:e=>`guides/${e}/`,guideList:"guides/",faqList:"faqs/",stats:"stats/"},E={calculator:e=>`https://calcfyi.com/calculator/${e}/`,formula:e=>`https://calcfyi.com/formula/${e}/`,category:e=>`https://calcfyi.com/category/${e}/`,glossary:e=>`https://calcfyi.com/glossary/${e}/`,guide:e=>`https://calcfyi.com/guide/${e}/`,home:"https://calcfyi.com/"};var j='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>',G='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>';var R='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>',N='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><line x1="8" y1="10" x2="8" y2="10.01"/><line x1="12" y1="10" x2="12" y2="10.01"/><line x1="16" y1="10" x2="16" y2="10.01"/><line x1="8" y1="14" x2="8" y2="14.01"/><line x1="12" y1="14" x2="12" y2="14.01"/><line x1="8" y1="18" x2="8" y2="18.01"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>',W='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="3"/><circle cx="8" cy="8" r="1.5" fill="currentColor"/><circle cx="16" cy="8" r="1.5" fill="currentColor"/><circle cx="8" cy="16" r="1.5" fill="currentColor"/><circle cx="16" cy="16" r="1.5" fill="currentColor"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>';function Q(e){return e==null?"\u2014":e.toLocaleString("en-US")}function _(e){return e==null?"\u2014":"$"+e.toLocaleString("en-US",{maximumFractionDigits:0})}function b(e,t){return e?e.length>t?e.slice(0,t)+"\u2026":e:""}function f(e,t){return`<a class="guidefyi-link" href="${e}" target="_blank" rel="noopener">${t} ${F}</a>`}async function O(e,t,r){let i=await c(r.apiBase,M.calculatorDetail(t)),a=E.calculator(i.slug);e.innerHTML=`
+    <div class="guidefyi-card-header">
+      <h3 class="guidefyi-card-title">
+        <a href="${a}" target="_blank" rel="noopener">${N} ${i.name}</a>
+      </h3>
+      <p class="guidefyi-card-subtitle">${i.category}</p>
+    </div>
+    <div class="guidefyi-card-body">
+      ${i.description?`<p class="guidefyi-card-desc">${b(i.description,200)}</p>`:""}
+      <div class="guidefyi-card-footer">
+        ${f(a,"Open Calculator")}
+      </div>
+    </div>
+    ${g(r)}
+  `}async function U(e,t,r){let i=await c(r.apiBase,M.formulaDetail(t)),a=E.formula(i.slug),n=i.variables&&i.variables.length>0?`<div class="guidefyi-vars">
+        ${i.variables.map(o=>`
+          <div class="guidefyi-var-row">
+            <span class="guidefyi-var-symbol">${o.symbol||"\u2014"}</span>
+            <span class="guidefyi-var-name">${o.name}</span>
+            ${o.unit?`<span class="guidefyi-var-unit">${o.unit}</span>`:""}
+          </div>
+        `).join("")}
+       </div>`:"";e.innerHTML=`
+    <div class="guidefyi-card-header">
+      <h3 class="guidefyi-card-title">
+        <a href="${a}" target="_blank" rel="noopener">${i.title}</a>
+      </h3>
+    </div>
+    ${i.formula_latex?`<div class="guidefyi-formula-box">${be(i.formula_latex)}</div>`:""}
+    ${n}
+    <div class="guidefyi-card-body">
+      ${i.explanation?`<p class="guidefyi-card-desc">${b(i.explanation,180)}</p>`:""}
+      <div class="guidefyi-card-footer">
+        ${f(a,"Full Formula")}
+      </div>
+    </div>
+    ${g(r)}
+  `}function be(e){return e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}var H={countryDetail:e=>`countries/${e}/`,countryList:"countries/",cityList:"cities/",roleDetail:e=>`roles/${e}/`,roleList:"roles/",salaryData:"salary-data/",glossaryDetail:e=>`glossary/${e}/`,glossaryList:"glossary/",guideDetail:e=>`guides/${e}/`,guideList:"guides/",faqList:"faqs/",search:"search/",stats:"stats/"},D={country:e=>`https://salaryfyi.com/countries/${e}/`,role:e=>`https://salaryfyi.com/roles/${e}/`,salary:(e,t)=>`https://salaryfyi.com/salary/${e}/${t}/`,glossary:e=>`https://salaryfyi.com/glossary/${e}/`,guide:e=>`https://salaryfyi.com/guide/${e}/`,home:"https://salaryfyi.com/"};async function V(e,t,r){let i=await c(r.apiBase,H.countryDetail(t)),a=D.country(i.slug),n=o=>{if(!o)return"";let s={growing:"#16a34a",stable:"#eab308",declining:"#dc2626"}[o.toLowerCase()]||"var(--muted)";return`<span class="guidefyi-badge" style="background:${s}20;color:${s}">${o}</span>`};e.innerHTML=`
+    <div class="guidefyi-card-header">
+      <h3 class="guidefyi-card-title">
+        <a href="${a}" target="_blank" rel="noopener">${i.flag_emoji||""} ${i.name}</a>
+      </h3>
+      <p class="guidefyi-card-subtitle">${i.continent} \xB7 ${i.currency_code}</p>
+    </div>
+    <div class="guidefyi-card-body">
+      <div class="guidefyi-props">
+        <div class="guidefyi-prop">
+          <span class="guidefyi-prop-label">Median Salary</span>
+          <span class="guidefyi-prop-value">${_(i.median_salary_usd)}</span>
+        </div>
+        <div class="guidefyi-prop">
+          <span class="guidefyi-prop-label">Top Tax Rate</span>
+          <span class="guidefyi-prop-value">${i.top_income_tax_rate!=null?i.top_income_tax_rate+"%":"\u2014"}</span>
+        </div>
+        <div class="guidefyi-prop">
+          <span class="guidefyi-prop-label">Cost of Living</span>
+          <span class="guidefyi-prop-value">${i.cost_of_living_index!=null?i.cost_of_living_index.toFixed(1):"\u2014"}</span>
+        </div>
+      </div>
+      ${i.description?`<p class="guidefyi-card-desc">${b(i.description,160)}</p>`:""}
+      <div class="guidefyi-card-footer">
+        ${f(a,"Full Country Profile")}
+      </div>
+    </div>
+    ${g(r)}
+  `}async function Y(e,t,r){let i=await c(r.apiBase,H.roleDetail(t)),a=D.role(i.slug),o={high:"#16a34a",growing:"#16a34a",moderate:"#eab308",stable:"#eab308",low:"#dc2626",declining:"#dc2626"}[i.demand_trend?.toLowerCase()]||"var(--muted)";e.innerHTML=`
+    <div class="guidefyi-card-header">
+      <h3 class="guidefyi-card-title">
+        <a href="${a}" target="_blank" rel="noopener">${R} ${i.name}</a>
+      </h3>
+      <p class="guidefyi-card-subtitle">${i.category}</p>
+    </div>
+    <div class="guidefyi-card-body">
+      <div class="guidefyi-props">
+        <div class="guidefyi-prop">
+          <span class="guidefyi-prop-label">Demand</span>
+          <span class="guidefyi-prop-value" style="color:${o}">${i.demand_trend||"\u2014"}</span>
+        </div>
+        <div class="guidefyi-prop">
+          <span class="guidefyi-prop-label">Remote</span>
+          <span class="guidefyi-prop-value">${i.remote_availability||"\u2014"}</span>
+        </div>
+      </div>
+      ${i.description?`<p class="guidefyi-card-desc">${b(i.description,180)}</p>`:""}
+      <div class="guidefyi-card-footer">
+        ${f(a,"Full Role Profile")}
+      </div>
+    </div>
+    ${g(r)}
+  `}var h={gameDetail:e=>`games/${e}/`,gameList:"games/",publisherList:"publishers/",designerList:"designers/",mechanicList:"mechanics/",categoryList:"categories/",awardList:"awards/",glossaryDetail:e=>`glossary/${e}/`,glossaryList:"glossary/",guideDetail:e=>`guides/${e}/`,guideList:"guides/",faqList:"faqs/",stats:"stats/"},$={game:e=>`https://boardgamefyi.com/games/${e}/`,designer:e=>`https://boardgamefyi.com/designers/${e}/`,mechanic:e=>`https://boardgamefyi.com/mechanics/${e}/`,publisher:e=>`https://boardgamefyi.com/publishers/${e}/`,glossary:e=>`https://boardgamefyi.com/glossary/${e}/`,guide:e=>`https://boardgamefyi.com/guide/${e}/`,home:"https://boardgamefyi.com/"};var k=[{key:"dna_strategy",label:"Strategy"},{key:"dna_luck",label:"Luck"},{key:"dna_interaction",label:"Interaction"},{key:"dna_complexity",label:"Complexity"},{key:"dna_length",label:"Length"},{key:"dna_scaling",label:"Scaling"},{key:"dna_replayability",label:"Replay"},{key:"dna_accessibility",label:"Access"}];async function X(e,t,r){let i=await c(r.apiBase,h.gameDetail(t)),a=$.game(i.slug),n=i.min_players&&i.max_players?i.min_players===i.max_players?`${i.min_players}`:`${i.min_players}\u2013${i.max_players}`:"\u2014",o=i.playing_time_min&&i.playing_time_max?i.playing_time_min===i.playing_time_max?`${i.playing_time_min}m`:`${i.playing_time_min}\u2013${i.playing_time_max}m`:"\u2014",l=i.bgg_rating!=null?i.bgg_rating.toFixed(1):"\u2014",s=i.bgg_weight!=null?i.bgg_weight.toFixed(1)+"/5":"\u2014";e.innerHTML=`
+    <div class="guidefyi-card-header">
+      <h3 class="guidefyi-card-title">
+        <a href="${a}" target="_blank" rel="noopener">${W} ${i.name}</a>
+      </h3>
+      <p class="guidefyi-card-subtitle">${i.year_published||""} ${i.bgg_rank?"\xB7 BGG #"+Q(i.bgg_rank):""}</p>
+    </div>
+    <div class="guidefyi-card-body">
+      <div class="guidefyi-props">
+        <div class="guidefyi-prop">
+          <span class="guidefyi-prop-label">Rating</span>
+          <span class="guidefyi-prop-value"><span class="guidefyi-rating-badge">${j} ${l}</span></span>
+        </div>
+        <div class="guidefyi-prop">
+          <span class="guidefyi-prop-label">Players</span>
+          <span class="guidefyi-prop-value">${n}</span>
+        </div>
+        <div class="guidefyi-prop">
+          <span class="guidefyi-prop-label">Time</span>
+          <span class="guidefyi-prop-value">${o}</span>
+        </div>
+        <div class="guidefyi-prop">
+          <span class="guidefyi-prop-label">Weight</span>
+          <span class="guidefyi-prop-value">${s}</span>
+        </div>
+      </div>
+      ${i.description?`<p class="guidefyi-card-desc">${b(i.description,160)}</p>`:""}
+      <div class="guidefyi-card-footer">
+        ${f(a,"Full Game Profile")}
+      </div>
+    </div>
+    ${g(r)}
+  `}async function J(e,t,r){let i=t.dataset.slug;if(!i){d(e,"Missing data-slug attribute",r);return}y(e);try{let a=t.dataset.entityType||"";switch(r.site){case"calcfyi":a==="formula"?await U(e,i,r):await O(e,i,r);break;case"salaryfyi":a==="role"?await Y(e,i,r):await V(e,i,r);break;case"boardgamefyi":await X(e,i,r);break;default:d(e,`Unknown site: ${r.site}`,r)}}catch(a){d(e,a.message,r)}}var T=new Set;function K(e,t,r,i){let a=`defined-term:${r}`;if(T.has(a))return;T.add(a);let n={"@context":"https://schema.org","@type":"DefinedTerm",name:e,description:t.slice(0,300),url:r,inDefinedTermSet:{"@type":"DefinedTermSet",name:`${i} Glossary`,url:r.replace(/glossary\/.*/,"glossary/")}};ee(n)}function Z(e,t){let r=`faq:${t}`;if(T.has(r))return;T.add(r);let i={"@context":"https://schema.org","@type":"FAQPage",mainEntity:e.slice(0,10).map(a=>({"@type":"Question",name:a.question,acceptedAnswer:{"@type":"Answer",text:a.answer.slice(0,500)}}))};ee(i)}function ee(e){let t=document.createElement("script");t.type="application/ld+json",t.textContent=JSON.stringify(e),document.head.appendChild(t)}function he(e,t){return`glossary/${t}/`}function ve(e,t,r){return`https://${t}/glossary/${r}/`}async function ie(e,t,r){let i=t.dataset.slug;if(!i){d(e,"Missing data-slug",r);return}y(e);try{let a=await c(r.apiBase,he(r.site,i)),n=a.term||a.name||i,o=ve(r.site,r.domain,a.slug);t.dataset.noSnippet!=="true"&&K(n,a.definition,o,r.name),e.innerHTML=`
+      <div class="guidefyi-card-body">
+        <div class="guidefyi-glossary-term">${n}</div>
+        ${a.category?`<div class="guidefyi-glossary-cat"><span class="guidefyi-badge">${a.category}</span></div>`:""}
+        <p class="guidefyi-glossary-def">${a.definition}</p>
+        <div style="margin-top:10px">${f(o,"Read more")}</div>
+      </div>
+      ${g(r)}
+    `}catch(a){d(e,a.message,r)}}function we(e,t){return`https://${e}/guide/${t}/`}async function re(e,t,r){let i=t.dataset.slug;if(!i){d(e,"Missing data-slug",r);return}y(e);try{let a=await c(r.apiBase,`guides/${i}/`),n=we(r.domain,a.slug);e.innerHTML=`
+      <div class="guidefyi-card-header">
+        <h3 class="guidefyi-card-title">
+          <a href="${n}" target="_blank" rel="noopener">${a.title}</a>
+        </h3>
+        ${a.guide_type||a.category?`<p class="guidefyi-card-subtitle">${a.guide_type||a.category||""}</p>`:""}
+      </div>
+      <div class="guidefyi-card-body">
+        ${a.excerpt?`<p class="guidefyi-card-desc">${b(a.excerpt,200)}</p>`:""}
+        <div class="guidefyi-guide-meta">
+          ${a.reading_time_minutes?`<span>${a.reading_time_minutes} min read</span>`:""}
+          ${a.series?`<span>\xB7 ${a.series}</span>`:""}
+        </div>
+        <div style="margin-top:10px">${f(n,"Read Guide")}</div>
+      </div>
+      ${g(r)}
+    `}catch(a){d(e,a.message,r)}}var $e='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';async function te(e,t,r){y(e);try{let i=t.dataset.slug,a={};i&&(a.category=i);let n=await I(r.apiBase,"faqs/",a);if(!n.length){d(e,"No FAQs found",r);return}let o=n.slice(0,10);t.dataset.noSnippet!=="true"&&Z(o,`https://${r.domain}/`),e.innerHTML=`
+      <div class="guidefyi-card-header">
+        <h3 class="guidefyi-card-title">Frequently Asked Questions</h3>
+        <p class="guidefyi-card-subtitle">${r.name}</p>
+      </div>
+      <div class="guidefyi-faq-list">
+        ${o.map((l,s)=>`
+          <div class="guidefyi-faq-item">
+            <div class="guidefyi-faq-q" data-idx="${s}">
+              <span>${l.question}</span>
+              <span class="guidefyi-faq-arrow">${$e}</span>
+            </div>
+            <div class="guidefyi-faq-a" data-idx="${s}">${l.answer}</div>
+          </div>
+        `).join("")}
+      </div>
+      ${g(r)}
+    `,e.querySelectorAll(".guidefyi-faq-q").forEach(l=>{l.addEventListener("click",()=>{let s=l.dataset.idx,p=e.querySelector(`.guidefyi-faq-a[data-idx="${s}"]`),u=l.querySelector(".guidefyi-faq-arrow"),x=p.classList.contains("open");p.classList.toggle("open"),u.classList.toggle("open")})})}catch(i){d(e,i.message,r)}}function ae(e,t,r){let i=t.dataset.placeholder||`Search ${r.entityName}...`,a=`https://${r.domain}${r.searchPath}`;e.innerHTML=`
+    <div class="guidefyi-search-wrap">
+      <form class="guidefyi-search-form" action="${a}" target="_blank" method="GET">
+        <input class="guidefyi-search-input" type="text" name="q" placeholder="${i}" autocomplete="off" />
+        <button class="guidefyi-search-btn" type="submit">Search</button>
+      </form>
+    </div>
+    ${g(r)}
+  `}function ne(e,t,r){switch(e){case"calcfyi":return`formulas/${t}/`;case"salaryfyi":return r==="role"?`roles/${t}/`:`countries/${t}/`;case"boardgamefyi":return`games/${t}/`;default:return`${t}/`}}function ke(e,t,r){switch(e){case"salaryfyi":return[["Median Salary",_(t.median_salary_usd),_(r.median_salary_usd)],["Top Tax Rate",(t.top_income_tax_rate??"\u2014")+"%",(r.top_income_tax_rate??"\u2014")+"%"],["Cost of Living",String(t.cost_of_living_index??"\u2014"),String(r.cost_of_living_index??"\u2014")]];case"boardgamefyi":return[["BGG Rating",String(t.bgg_rating?.toFixed(1)??"\u2014"),String(r.bgg_rating?.toFixed(1)??"\uFFFD\uFFFD\uFFFD")],["Weight",String(t.bgg_weight?.toFixed(1)??"\u2014"),String(r.bgg_weight?.toFixed(1)??"\u2014")],["Players",`${t.min_players}\u2013${t.max_players}`,`${r.min_players}\u2013${r.max_players}`],["Time",`${t.playing_time_min}\u2013${t.playing_time_max}m`,`${r.playing_time_min}\u2013${r.playing_time_max}m`]];default:return[]}}async function oe(e,t,r){let i=t.dataset.slugs;if(!i){d(e,"Missing data-slugs (comma-separated)",r);return}let[a,n]=i.split(",").map(o=>o.trim());if(!a||!n){d(e,"Need two slugs separated by comma",r);return}y(e);try{let o=t.dataset.entityType||"",[l,s]=await Promise.all([c(r.apiBase,ne(r.site,a,o)),c(r.apiBase,ne(r.site,n,o))]),p=ke(r.site,l,s);e.innerHTML=`
+      <div class="guidefyi-card-header">
+        <h3 class="guidefyi-card-title">${l.name} vs ${s.name}</h3>
+        <p class="guidefyi-card-subtitle">${r.name} Comparison</p>
+      </div>
+      <div class="guidefyi-compare">
+        <div class="guidefyi-compare-col">
+          <div class="guidefyi-compare-name">${l.name}</div>
+          ${p.map(([u,x])=>`
+            <div class="guidefyi-compare-row">
+              <span class="guidefyi-compare-label">${u}</span>
+              <span class="guidefyi-compare-val">${x}</span>
+            </div>
+          `).join("")}
+        </div>
+        <div class="guidefyi-compare-col">
+          <div class="guidefyi-compare-name">${s.name}</div>
+          ${p.map(([,,u])=>`
+            <div class="guidefyi-compare-row">
+              <span class="guidefyi-compare-label">&nbsp;</span>
+              <span class="guidefyi-compare-val">${u}</span>
+            </div>
+          `).join("")}
+        </div>
+      </div>
+      ${g(r)}
+    `}catch(o){d(e,o.message,r)}}var se=100,de=100,L=75;function C(e,t){let r=(e-90)*(Math.PI/180);return[se+t*Math.cos(r),de+t*Math.sin(r)]}function _e(e){let t=k.length,r=360/t,i=[.33,.66,1].map(s=>{let p=L*s;return`<polygon class="guidefyi-radar-grid" points="${Array.from({length:t},(x,ue)=>C(ue*r,p).join(",")).join(" ")}" />`}).join(""),a=Array.from({length:t},(s,p)=>{let[u,x]=C(p*r,L);return`<line class="guidefyi-radar-axis" x1="${se}" y1="${de}" x2="${u}" y2="${x}" />`}).join(""),n=k.map((s,p)=>{let[u,x]=C(p*r,L+16);return`<text class="guidefyi-radar-label" x="${u}" y="${x+3}">${s.label}</text>`}).join(""),o=e.map((s,p)=>{let[u,x]=C(p*r,s/10*L+10);return`<text class="guidefyi-radar-value" x="${u}" y="${x}">${s.toFixed(1)}</text>`}).join(""),l=e.map((s,p)=>{let u=s/10*L;return C(p*r,u).join(",")}).join(" ");return`<svg class="guidefyi-radar-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    ${i}
+    ${a}
+    <polygon class="guidefyi-radar-polygon" points="${l}" />
+    ${n}
+    ${o}
+  </svg>`}async function le(e,t,r){let i=t.dataset.slug;if(!i){d(e,"Missing data-slug",r);return}y(e);try{let a=await c(r.apiBase,h.gameDetail(i)),n=$.game(a.slug),o=k.map(l=>{let s=a[l.key];return s??0});e.innerHTML=`
+      <div class="guidefyi-card-header">
+        <h3 class="guidefyi-card-title">
+          <a href="${n}" target="_blank" rel="noopener">${a.name} DNA</a>
+        </h3>
+        <p class="guidefyi-card-subtitle">Game DNA Profile \u2014 8 axes, 0\u201310 scale</p>
+      </div>
+      <div class="guidefyi-radar-wrap">
+        ${_e(o)}
+      </div>
+      <div class="guidefyi-card-footer">
+        ${f(n,"Full Profile")}
+      </div>
+      ${g(r)}
+    `}catch(a){d(e,a.message,r)}}async function ce(e,t,r){let i=t.dataset.slug;if(!i){d(e,"Missing data-slug",r);return}y(e);try{let a=await c(r.apiBase,h.gameDetail(i)),n=$.game(a.slug),o=k.map(l=>{let s=a[l.key],p=s??0,u=p/10*100;return`
+        <div class="guidefyi-dna-row">
+          <span class="guidefyi-dna-label">${l.label}</span>
+          <div class="guidefyi-dna-track">
+            <div class="guidefyi-dna-fill" style="width:${u}%"></div>
+          </div>
+          <span class="guidefyi-dna-val">${p.toFixed(1)}</span>
+        </div>
+      `}).join("");e.innerHTML=`
+      <div class="guidefyi-card-header">
+        <h3 class="guidefyi-card-title">
+          <a href="${n}" target="_blank" rel="noopener">${a.name} DNA</a>
+        </h3>
+        <p class="guidefyi-card-subtitle">Game DNA Profile</p>
+      </div>
+      <div class="guidefyi-dna-bars">
+        ${o}
+      </div>
+      <div class="guidefyi-card-footer">
+        ${f(n,"Full Profile")}
+      </div>
+      ${g(r)}
+    `}catch(a){d(e,a.message,r)}}async function ge(e,t){let r=v(e,t),i=w(r,e);i.style.maxWidth="fit-content",i.style.display="inline-flex",i.style.border="none",i.style.background="transparent";let a=e.dataset.slug;if(!a){d(i,"Missing data-slug",t);return}try{let n=await c(t.apiBase,h.gameDetail(a)),o=n.min_players&&n.max_players?n.min_players===n.max_players?`${n.min_players}`:`${n.min_players}\u2013${n.max_players}`:"?",l=n.best_player_counts?` (best: ${n.best_player_counts})`:"";i.innerHTML=`<span class="guidefyi-rating-badge">${G} ${o} players${l}</span>`}catch(n){d(i,n.message,t)}}function Le(e){return e<1.5?"Light":e<2.5?"Medium Light":e<3.5?"Medium":e<4.5?"Heavy":"Very Heavy"}async function pe(e,t){let r=v(e,t),i=w(r,e);i.style.maxWidth="fit-content",i.style.display="inline-flex",i.style.border="none",i.style.background="transparent";let a=e.dataset.slug;if(!a){d(i,"Missing data-slug",t);return}try{let o=(await c(t.apiBase,h.gameDetail(a))).bgg_weight,l=o!=null?`${o.toFixed(1)}/5 \u2014 ${Le(o)}`:"N/A";i.innerHTML=`<span class="guidefyi-badge">${l}</span>`}catch(n){d(i,n.message,t)}}var m={site:"boardgamefyi",name:"BoardGameFYI",domain:"boardgamefyi.com",accent:"#A855F7",attribute:"data-boardgamefyi",apiBase:"https://boardgamefyi.com/api/v1/",searchPath:"/search/",entityName:"Games",entitySlug:"catan"};async function Ce(e){let t=e.dataset[m.attribute.replace("data-","")]||"entity",r=e.dataset.slug||"";switch(t){case"player-badge":await ge(e,m);return;case"weight-badge":await pe(e,m);return}let i=v(e,m),a=w(i,e);try{switch(t){case"entity":await J(a,e,m);break;case"glossary":await ie(a,e,m);break;case"guide":await re(a,e,m);break;case"faq":await te(a,e,m);break;case"search":ae(a,e,m);break;case"compare":await oe(a,e,m);break;case"dna-radar":await le(a,e,m);break;case"dna-bars":await ce(a,e,m);break;default:d(a,`Unknown widget type: ${t}`,m)}}catch(n){d(a,n.message,m)}}var P=new IntersectionObserver(e=>{e.forEach(t=>{t.isIntersecting&&(P.unobserve(t.target),Ce(t.target))})},{rootMargin:"200px"});function A(){document.querySelectorAll("[data-boardgamefyi]").forEach(e=>{e.shadowRoot||P.observe(e)}),document.querySelectorAll("boardgamefyi-entity, boardgamefyi-glossary, boardgamefyi-search, boardgamefyi-faq, boardgamefyi-guide, boardgamefyi-compare").forEach(e=>{if(!e.shadowRoot){let t=e.dataset;t[m.attribute.replace("data-","")]=e.tagName.split("-").pop().toLowerCase(),e.getAttribute("slug")&&(t.slug=e.getAttribute("slug")),e.getAttribute("theme")&&(t.theme=e.getAttribute("theme")),e.getAttribute("style-variant")&&(t.styleVariant=e.getAttribute("style-variant")),e.getAttribute("size")&&(t.size=e.getAttribute("size")),P.observe(e)}})}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",A):A();new MutationObserver(()=>A()).observe(document.body,{childList:!0,subtree:!0});

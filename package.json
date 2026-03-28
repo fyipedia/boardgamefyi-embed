@@ -1,0 +1,44 @@
+{
+  "name": "boardgamefyi-embed",
+  "version": "1.0.0",
+  "description": "Embed BoardGameFYI widgets — game cards, 8-axis DNA radar charts, player badges. 10,552 games. Zero dependencies, Shadow DOM, 4 themes.",
+  "main": "dist/embed.min.js",
+  "module": "dist/embed.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "board-game",
+    "tabletop",
+    "BGG",
+    "rating",
+    "strategy",
+    "dice",
+    "DNA",
+    "radar",
+    "embed",
+    "widget",
+    "boardgamefyi",
+    "boardgamefyi.com",
+    "shadow-dom",
+    "zero-dependencies",
+    "fyipedia",
+    "guidefyi"
+  ],
+  "homepage": "https://widget.boardgamefyi.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fyipedia/boardgamefyi-embed"
+  },
+  "bugs": {
+    "url": "https://github.com/fyipedia/boardgamefyi-embed/issues"
+  },
+  "license": "MIT",
+  "author": "FYIPedia <dev@fyipedia.com>",
+  "publishConfig": {
+    "access": "public"
+  }
+}
