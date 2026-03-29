@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# BoardGameFYI Embed Widget
+# Main site: https://boardgamefyi.com
+# Widget docs: https://widget.boardgamefyi.com
+# npm: https://www.npmjs.com/package/boardgamefyi-embed
