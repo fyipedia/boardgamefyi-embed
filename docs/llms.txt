@@ -1,21 +1,52 @@
 # BoardGameFYI Embed Widget
 
-> Embeddable BoardGameFYI widgets for any website. Zero dependencies, Shadow DOM isolation, 4 themes (light/dark/sepia/auto).
+> Board games, rules, reviews. Embeddable widgets for any website. Zero dependencies, Shadow DOM isolation.
 
 ## Quick Start
 
-Add to any HTML page:
-- Script: <script src="https://cdn.jsdelivr.net/npm/boardgamefyi-embed@1/dist/embed.min.js"></script>
+```html
+<script src="https://cdn.jsdelivr.net/npm/boardgamefyi-embed@1/dist/embed.min.js"></script>
+<div data-boardgamefyi="dna-radar" data-slug="example"></div>
+```
+
+## Available Widget Types (8)
+
+- entity: `data-boardgamefyi="entity"`
+- glossary: `data-boardgamefyi="glossary"`
+- guide: `data-boardgamefyi="guide"`
+- compare: `data-boardgamefyi="compare"`
+- search: `data-boardgamefyi="search"`
+- faq: `data-boardgamefyi="faq"`
+- dna-radar (interactive): `data-boardgamefyi="dna-radar"`
+- dna-bars (interactive): `data-boardgamefyi="dna-bars"`
+
+## Customization
+
+- **Themes**: light, dark, sepia, auto (follows system preference)
+- **Sizes**: compact (280px), default (420px), large (720px)
+- **Styles**: modern, classic
+
+```html
+<div data-boardgamefyi="dna-radar" data-slug="example"
+     data-theme="auto" data-size="compact" data-style-variant="modern"></div>
+```
+
+## Integration Methods
+
+1. **Script tag** (recommended): `<script src="https://cdn.jsdelivr.net/npm/boardgamefyi-embed@1/dist/embed.min.js"></script>`
+2. **iframe**: `https://boardgamefyi.com/iframe/entity/{slug}/`
+3. **oEmbed**: `https://boardgamefyi.com/oembed?url={page_url}&format=json`
+4. **Badge**: `https://boardgamefyi.com/badge/site.svg`
 
 ## Links
 
 - Main site: https://boardgamefyi.com
 - Widget docs: https://widget.boardgamefyi.com
-- npm: https://www.npmjs.com/package/boardgamefyi-embed
+- API documentation: https://boardgamefyi.com/developers/
+- npm package: https://www.npmjs.com/package/boardgamefyi-embed
 - GitHub: https://github.com/fyipedia/boardgamefyi-embed
-- API: https://boardgamefyi.com/developers/
 
-## Guide FYI Widget Family
+## Guide FYI Widget Network
 
 - [CalcFYI Widget](https://widget.calcfyi.com)
 - [SalaryFYI Widget](https://widget.salaryfyi.com)
