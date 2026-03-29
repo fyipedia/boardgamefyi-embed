@@ -1,0 +1,26 @@
+# BoardGameFYI Embed Widget
+
+> Embeddable BoardGameFYI widgets for any website. Zero dependencies, Shadow DOM isolation, 4 themes (light/dark/sepia/auto).
+
+## Quick Start
+
+Add to any HTML page:
+- Script: <script src="https://cdn.jsdelivr.net/npm/boardgamefyi-embed@1/dist/embed.min.js"></script>
+
+## Links
+
+- Main site: https://boardgamefyi.com
+- Widget docs: https://widget.boardgamefyi.com
+- npm: https://www.npmjs.com/package/boardgamefyi-embed
+- GitHub: https://github.com/fyipedia/boardgamefyi-embed
+- API: https://boardgamefyi.com/developers/
+
+## Guide FYI Widget Family
+
+- [CalcFYI Widget](https://widget.calcfyi.com)
+- [SalaryFYI Widget](https://widget.salaryfyi.com)
+- [UnivFYI Widget](https://widget.univfyi.com)
+
+## Part of FYIPedia
+
+Open-source developer tools ecosystem — https://fyipedia.com
