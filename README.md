@@ -63,6 +63,17 @@ Part of [FYIPedia](https://fyipedia.com). Guide FYI covers calculators, salary, 
 | SalaryFYI | [salaryfyi.com](https://salaryfyi.com) | 36 countries, salary data, tax calculators, 26 rate configs | [npm](https://www.npmjs.com/package/salaryfyi-embed) |
 | **BoardGameFYI** | [boardgamefyi.com](https://boardgamefyi.com) | 10,552 board games, 8-axis DNA profiles, BGG integration | **[npm](https://www.npmjs.com/package/boardgamefyi-embed)** |
 
+## Embed Widget
+
+Embed [BoardGameFYI](https://boardgamefyi.com) widgets on any website with [boardgamefyi-embed](https://widget.boardgamefyi.com):
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/boardgamefyi-embed@1/dist/embed.min.js"></script>
+<div data-boardgamefyi="entity" data-slug="example"></div>
+```
+
+Zero dependencies · Shadow DOM · 4 themes (light/dark/sepia/auto) · [Widget docs](https://widget.boardgamefyi.com)
+
 ## License
 
 MIT — see [LICENSE](./LICENSE).
