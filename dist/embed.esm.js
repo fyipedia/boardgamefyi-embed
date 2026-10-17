@@ -441,14 +441,14 @@ ${fe(t)}
   `}function d(e,t,r){e.innerHTML=`
     <div class="guidefyi-error">
       <p>${t}</p>
-      <a href="https://${r.domain}" target="_blank" rel="noopener">
+      <a href="https://${r.domain}" target="_blank" rel="nofollow noopener">
         Visit ${r.name}
       </a>
     </div>
-  `}var F='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>';function g(e){return`<span class="guidefyi-powered">Powered by <a href="https://${e.domain}" target="_blank" rel="noopener">${e.name}</a></span>`}function S(e){return`guidefyi_embed_${e}`}function ye(e){try{let t=sessionStorage.getItem(S(e));if(!t)return null;let r=JSON.parse(t);return Date.now()-r.ts>3e5?(sessionStorage.removeItem(S(e)),null):r.data}catch{return null}}function xe(e,t){try{let r={data:t,ts:Date.now()};sessionStorage.setItem(S(e),JSON.stringify(r))}catch{}}async function c(e,t,r){let i=e.endsWith("/")?e:e+"/",a=t.startsWith("/")?t.slice(1):t,n=new URL(a,i);r&&Object.entries(r).forEach(([u,x])=>n.searchParams.set(u,x));let o=n.toString(),l=ye(o);if(l!==null)return l;let s=await fetch(o,{headers:{Accept:"application/json"}});if(!s.ok)throw new Error(`API error ${s.status}: ${o}`);let p=await s.json();return xe(o,p),p}async function I(e,t,r){let i=await c(e,t,r);return Array.isArray(i)?i:i&&typeof i=="object"&&"results"in i?i.results:[]}var M={calculatorDetail:e=>`calculators/${e}/`,calculatorList:"calculators/",formulaDetail:e=>`formulas/${e}/`,formulaList:"formulas/",categoryList:"categories/",categoryDetail:e=>`categories/${e}/`,glossaryDetail:e=>`glossary/${e}/`,glossaryList:"glossary/",guideDetail:e=>`guides/${e}/`,guideList:"guides/",faqList:"faqs/",stats:"stats/"},E={calculator:e=>`https://calcfyi.com/calculator/${e}/`,formula:e=>`https://calcfyi.com/formula/${e}/`,category:e=>`https://calcfyi.com/category/${e}/`,glossary:e=>`https://calcfyi.com/glossary/${e}/`,guide:e=>`https://calcfyi.com/guide/${e}/`,home:"https://calcfyi.com/"};var j='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>',G='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>';var R='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>',N='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><line x1="8" y1="10" x2="8" y2="10.01"/><line x1="12" y1="10" x2="12" y2="10.01"/><line x1="16" y1="10" x2="16" y2="10.01"/><line x1="8" y1="14" x2="8" y2="14.01"/><line x1="12" y1="14" x2="12" y2="14.01"/><line x1="8" y1="18" x2="8" y2="18.01"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>',W='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="3"/><circle cx="8" cy="8" r="1.5" fill="currentColor"/><circle cx="16" cy="8" r="1.5" fill="currentColor"/><circle cx="8" cy="16" r="1.5" fill="currentColor"/><circle cx="16" cy="16" r="1.5" fill="currentColor"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>';function Q(e){return e==null?"\u2014":e.toLocaleString("en-US")}function _(e){return e==null?"\u2014":"$"+e.toLocaleString("en-US",{maximumFractionDigits:0})}function b(e,t){return e?e.length>t?e.slice(0,t)+"\u2026":e:""}function f(e,t){return`<a class="guidefyi-link" href="${e}" target="_blank" rel="noopener">${t} ${F}</a>`}async function O(e,t,r){let i=await c(r.apiBase,M.calculatorDetail(t)),a=E.calculator(i.slug);e.innerHTML=`
+  `}var F='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>';function g(e){return`<span class="guidefyi-powered">Powered by <a href="https://${e.domain}" target="_blank" rel="nofollow noopener">${e.name}</a></span>`}function S(e){return`guidefyi_embed_${e}`}function ye(e){try{let t=sessionStorage.getItem(S(e));if(!t)return null;let r=JSON.parse(t);return Date.now()-r.ts>3e5?(sessionStorage.removeItem(S(e)),null):r.data}catch{return null}}function xe(e,t){try{let r={data:t,ts:Date.now()};sessionStorage.setItem(S(e),JSON.stringify(r))}catch{}}async function c(e,t,r){let i=e.endsWith("/")?e:e+"/",a=t.startsWith("/")?t.slice(1):t,n=new URL(a,i);r&&Object.entries(r).forEach(([u,x])=>n.searchParams.set(u,x));let o=n.toString(),l=ye(o);if(l!==null)return l;let s=await fetch(o,{headers:{Accept:"application/json"}});if(!s.ok)throw new Error(`API error ${s.status}: ${o}`);let p=await s.json();return xe(o,p),p}async function I(e,t,r){let i=await c(e,t,r);return Array.isArray(i)?i:i&&typeof i=="object"&&"results"in i?i.results:[]}var M={calculatorDetail:e=>`calculators/${e}/`,calculatorList:"calculators/",formulaDetail:e=>`formulas/${e}/`,formulaList:"formulas/",categoryList:"categories/",categoryDetail:e=>`categories/${e}/`,glossaryDetail:e=>`glossary/${e}/`,glossaryList:"glossary/",guideDetail:e=>`guides/${e}/`,guideList:"guides/",faqList:"faqs/",stats:"stats/"},E={calculator:e=>`https://calcfyi.com/calculator/${e}/`,formula:e=>`https://calcfyi.com/formula/${e}/`,category:e=>`https://calcfyi.com/category/${e}/`,glossary:e=>`https://calcfyi.com/glossary/${e}/`,guide:e=>`https://calcfyi.com/guide/${e}/`,home:"https://calcfyi.com/"};var j='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>',G='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>';var R='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>',N='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><line x1="8" y1="10" x2="8" y2="10.01"/><line x1="12" y1="10" x2="12" y2="10.01"/><line x1="16" y1="10" x2="16" y2="10.01"/><line x1="8" y1="14" x2="8" y2="14.01"/><line x1="12" y1="14" x2="12" y2="14.01"/><line x1="8" y1="18" x2="8" y2="18.01"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>',W='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="3"/><circle cx="8" cy="8" r="1.5" fill="currentColor"/><circle cx="16" cy="8" r="1.5" fill="currentColor"/><circle cx="8" cy="16" r="1.5" fill="currentColor"/><circle cx="16" cy="16" r="1.5" fill="currentColor"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>';function Q(e){return e==null?"\u2014":e.toLocaleString("en-US")}function _(e){return e==null?"\u2014":"$"+e.toLocaleString("en-US",{maximumFractionDigits:0})}function b(e,t){return e?e.length>t?e.slice(0,t)+"\u2026":e:""}function f(e,t){return`<a class="guidefyi-link" href="${e}" target="_blank" rel="nofollow noopener">${t} ${F}</a>`}async function O(e,t,r){let i=await c(r.apiBase,M.calculatorDetail(t)),a=E.calculator(i.slug);e.innerHTML=`
     <div class="guidefyi-card-header">
       <h3 class="guidefyi-card-title">
-        <a href="${a}" target="_blank" rel="noopener">${N} ${i.name}</a>
+        <a href="${a}" target="_blank" rel="nofollow noopener">${N} ${i.name}</a>
       </h3>
       <p class="guidefyi-card-subtitle">${i.category}</p>
     </div>
@@ -470,7 +470,7 @@ ${fe(t)}
        </div>`:"";e.innerHTML=`
     <div class="guidefyi-card-header">
       <h3 class="guidefyi-card-title">
-        <a href="${a}" target="_blank" rel="noopener">${i.title}</a>
+        <a href="${a}" target="_blank" rel="nofollow noopener">${i.title}</a>
       </h3>
     </div>
     ${i.formula_latex?`<div class="guidefyi-formula-box">${be(i.formula_latex)}</div>`:""}
@@ -485,7 +485,7 @@ ${fe(t)}
   `}function be(e){return e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}var H={countryDetail:e=>`countries/${e}/`,countryList:"countries/",cityList:"cities/",roleDetail:e=>`roles/${e}/`,roleList:"roles/",salaryData:"salary-data/",glossaryDetail:e=>`glossary/${e}/`,glossaryList:"glossary/",guideDetail:e=>`guides/${e}/`,guideList:"guides/",faqList:"faqs/",search:"search/",stats:"stats/"},D={country:e=>`https://salaryfyi.com/countries/${e}/`,role:e=>`https://salaryfyi.com/roles/${e}/`,salary:(e,t)=>`https://salaryfyi.com/salary/${e}/${t}/`,glossary:e=>`https://salaryfyi.com/glossary/${e}/`,guide:e=>`https://salaryfyi.com/guide/${e}/`,home:"https://salaryfyi.com/"};async function V(e,t,r){let i=await c(r.apiBase,H.countryDetail(t)),a=D.country(i.slug),n=o=>{if(!o)return"";let s={growing:"#16a34a",stable:"#eab308",declining:"#dc2626"}[o.toLowerCase()]||"var(--muted)";return`<span class="guidefyi-badge" style="background:${s}20;color:${s}">${o}</span>`};e.innerHTML=`
     <div class="guidefyi-card-header">
       <h3 class="guidefyi-card-title">
-        <a href="${a}" target="_blank" rel="noopener">${i.flag_emoji||""} ${i.name}</a>
+        <a href="${a}" target="_blank" rel="nofollow noopener">${i.flag_emoji||""} ${i.name}</a>
       </h3>
       <p class="guidefyi-card-subtitle">${i.continent} \xB7 ${i.currency_code}</p>
     </div>
@@ -513,7 +513,7 @@ ${fe(t)}
   `}async function Y(e,t,r){let i=await c(r.apiBase,H.roleDetail(t)),a=D.role(i.slug),o={high:"#16a34a",growing:"#16a34a",moderate:"#eab308",stable:"#eab308",low:"#dc2626",declining:"#dc2626"}[i.demand_trend?.toLowerCase()]||"var(--muted)";e.innerHTML=`
     <div class="guidefyi-card-header">
       <h3 class="guidefyi-card-title">
-        <a href="${a}" target="_blank" rel="noopener">${R} ${i.name}</a>
+        <a href="${a}" target="_blank" rel="nofollow noopener">${R} ${i.name}</a>
       </h3>
       <p class="guidefyi-card-subtitle">${i.category}</p>
     </div>
@@ -537,7 +537,7 @@ ${fe(t)}
   `}var h={gameDetail:e=>`games/${e}/`,gameList:"games/",publisherList:"publishers/",designerList:"designers/",mechanicList:"mechanics/",categoryList:"categories/",awardList:"awards/",glossaryDetail:e=>`glossary/${e}/`,glossaryList:"glossary/",guideDetail:e=>`guides/${e}/`,guideList:"guides/",faqList:"faqs/",stats:"stats/"},$={game:e=>`https://boardgamefyi.com/games/${e}/`,designer:e=>`https://boardgamefyi.com/designers/${e}/`,mechanic:e=>`https://boardgamefyi.com/mechanics/${e}/`,publisher:e=>`https://boardgamefyi.com/publishers/${e}/`,glossary:e=>`https://boardgamefyi.com/glossary/${e}/`,guide:e=>`https://boardgamefyi.com/guide/${e}/`,home:"https://boardgamefyi.com/"};var k=[{key:"dna_strategy",label:"Strategy"},{key:"dna_luck",label:"Luck"},{key:"dna_interaction",label:"Interaction"},{key:"dna_complexity",label:"Complexity"},{key:"dna_length",label:"Length"},{key:"dna_scaling",label:"Scaling"},{key:"dna_replayability",label:"Replay"},{key:"dna_accessibility",label:"Access"}];async function X(e,t,r){let i=await c(r.apiBase,h.gameDetail(t)),a=$.game(i.slug),n=i.min_players&&i.max_players?i.min_players===i.max_players?`${i.min_players}`:`${i.min_players}\u2013${i.max_players}`:"\u2014",o=i.playing_time_min&&i.playing_time_max?i.playing_time_min===i.playing_time_max?`${i.playing_time_min}m`:`${i.playing_time_min}\u2013${i.playing_time_max}m`:"\u2014",l=i.bgg_rating!=null?i.bgg_rating.toFixed(1):"\u2014",s=i.bgg_weight!=null?i.bgg_weight.toFixed(1)+"/5":"\u2014";e.innerHTML=`
     <div class="guidefyi-card-header">
       <h3 class="guidefyi-card-title">
-        <a href="${a}" target="_blank" rel="noopener">${W} ${i.name}</a>
+        <a href="${a}" target="_blank" rel="nofollow noopener">${W} ${i.name}</a>
       </h3>
       <p class="guidefyi-card-subtitle">${i.year_published||""} ${i.bgg_rank?"\xB7 BGG #"+Q(i.bgg_rank):""}</p>
     </div>
@@ -577,7 +577,7 @@ ${fe(t)}
     `}catch(a){d(e,a.message,r)}}function we(e,t){return`https://${e}/guide/${t}/`}async function re(e,t,r){let i=t.dataset.slug;if(!i){d(e,"Missing data-slug",r);return}y(e);try{let a=await c(r.apiBase,`guides/${i}/`),n=we(r.domain,a.slug);e.innerHTML=`
       <div class="guidefyi-card-header">
         <h3 class="guidefyi-card-title">
-          <a href="${n}" target="_blank" rel="noopener">${a.title}</a>
+          <a href="${n}" target="_blank" rel="nofollow noopener">${a.title}</a>
         </h3>
         ${a.guide_type||a.category?`<p class="guidefyi-card-subtitle">${a.guide_type||a.category||""}</p>`:""}
       </div>
@@ -650,7 +650,7 @@ ${fe(t)}
   </svg>`}async function le(e,t,r){let i=t.dataset.slug;if(!i){d(e,"Missing data-slug",r);return}y(e);try{let a=await c(r.apiBase,h.gameDetail(i)),n=$.game(a.slug),o=k.map(l=>{let s=a[l.key];return s??0});e.innerHTML=`
       <div class="guidefyi-card-header">
         <h3 class="guidefyi-card-title">
-          <a href="${n}" target="_blank" rel="noopener">${a.name} DNA</a>
+          <a href="${n}" target="_blank" rel="nofollow noopener">${a.name} DNA</a>
         </h3>
         <p class="guidefyi-card-subtitle">Game DNA Profile \u2014 8 axes, 0\u201310 scale</p>
       </div>
@@ -672,7 +672,7 @@ ${fe(t)}
       `}).join("");e.innerHTML=`
       <div class="guidefyi-card-header">
         <h3 class="guidefyi-card-title">
-          <a href="${n}" target="_blank" rel="noopener">${a.name} DNA</a>
+          <a href="${n}" target="_blank" rel="nofollow noopener">${a.name} DNA</a>
         </h3>
         <p class="guidefyi-card-subtitle">Game DNA Profile</p>
       </div>
